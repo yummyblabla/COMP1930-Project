@@ -20,13 +20,23 @@
 	    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
 
 	    <!-- Custom styles for this template -->
-	    <link href="css/one-page-wonder.min.css" rel="stylesheet">
+	    <link href="css/one-page-wonder.css" rel="stylesheet">
 
 	</head>
 
 	<body>
-		<div id="firebaseui-auth-container"></div>
-		<div id="loader">Loading...</div>
+		<div id="overlay" >
+
+			<div id="text">
+				
+				<div id="firebaseui-auth-container"></div>
+				<div id="loader">Loading...</div>
+				<button onclick="off()" id="closebutton">X</button>
+			</div>
+			
+
+		</div>
+		
 
 		<!-- Navigation -->
 	    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
@@ -38,10 +48,10 @@
 	        <div class="collapse navbar-collapse" id="navbarResponsive">
 	          <ul class="navbar-nav ml-auto">
 	            <li class="nav-item">
-	              <a class="nav-link" href="#">Sign Up</a>
+	              <a class="nav-link" href="#" onclick="on()">Sign Up</a>
 	            </li>
 	            <li class="nav-item">
-	              <a class="nav-link" href="#">Log In</a>
+	              <a class="nav-link" href="#" onclick="on()">Log In</a>
 	            </li>
 	          </ul>
 	        </div>
@@ -56,10 +66,6 @@
 	          <a href="#" class="btn btn-primary btn-xl rounded-pill mt-5">Learn More</a>
 	        </div>
 	      </div>
-	      <div class="bg-circle-1 bg-circle"></div>
-	      <div class="bg-circle-2 bg-circle"></div>
-	      <div class="bg-circle-3 bg-circle"></div>
-	      <div class="bg-circle-4 bg-circle"></div>
 	    </header>
 
 	    <section>
@@ -131,5 +137,6 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 	<script src="./src/firebase.js"></script>
+	<script src="./src/app.js"></script>
 
 </html>
