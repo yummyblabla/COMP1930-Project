@@ -17,6 +17,12 @@ let uiConfig = {
 		// User successfully signed in.
 		// Return type determines whether we continue the redirect automatically
 		// or whether we leave that to developer to handle.
+		if (authResult.additionalUserInfo.isNewUser) {
+			// add user to database
+			addUserToDatabase(authResult);
+		} else {
+			console.log(authResult.user.uid);
+		}
 		return true;
 	},
 	uiShown: function() {
@@ -31,11 +37,12 @@ let uiConfig = {
 	signInOptions: [
 		// Leave the lines as is for the providers you want to offer your users.
 		firebase.auth.EmailAuthProvider.PROVIDER_ID
-	],
-	// Terms of service url.
-	tosUrl: '<your-tos-url>',
-	// Privacy policy url.
-	privacyPolicyUrl: '<your-privacy-policy-url>'
+	]
+	// ,
+	// // Terms of service url.
+	// tosUrl: '<your-tos-url>',
+	// // Privacy policy url.
+	// privacyPolicyUrl: '<your-privacy-policy-url>'
 };
 
 ui.start('#firebaseui-auth-container', uiConfig);
@@ -63,6 +70,6 @@ const logOut = () => {
 		console.log("log out");
 
 	}).catch((error) => {
-		console.log("error");
+		console.log("There was an error in logging out.");
 	})
-}
+};
