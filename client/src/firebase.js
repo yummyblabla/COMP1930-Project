@@ -27,7 +27,7 @@ let uiConfig = {
 	},
 	// Will use popup for IDP Providers sign-in flow instead of the default, redirect.
 	signInFlow: 'popup',
-	signInSuccessUrl: '<url-to-redirect-to-on-success>',
+	signInSuccessUrl: './profile.html',
 	signInOptions: [
 		// Leave the lines as is for the providers you want to offer your users.
 		firebase.auth.EmailAuthProvider.PROVIDER_ID
@@ -39,3 +39,24 @@ let uiConfig = {
 };
 
 ui.start('#firebaseui-auth-container', uiConfig);
+
+firebase.auth().onAuthStateChanged((user) => {
+	if (user) {
+		let userFeatures = document.getElementsByClassName("userFeatures");
+		for (let i = 0; i < userFeatures.length; i++) {
+			userFeatures[i].style.display = "flex";
+		};
+		let notLoggedIn = document.getElementsByClassName("notLoggedIn");
+		for (let i = 0; i< notLoggedIn.length; i++) {
+			notLoggedIn[i].style.display = "none";
+		};
+
+		console.log(user);
+	} else {
+		let notLoggedIn = document.getElementsByClassName("notLoggedIn");
+		for (let i = 0; i< notLoggedIn.length; i++) {
+			notLoggedIn[i].style.display = "flex";
+		};
+		console.log("not logged in")
+	}
+})
