@@ -48,12 +48,18 @@
 	      <div class="container">
 	        <a class="navbar-brand" href="#">Movement Now</a>
 	        <div class="collapse navbar-collapse" id="navbarResponsive">
-	          <ul class="navbar-nav ml-auto notLoggedIn">
-	            <li class="nav-item">
+	          <ul class="navbar-nav ml-auto">
+	            <li class="nav-item notLoggedIn">
 	              <a class="nav-link" href="#" onclick="on()">Sign Up</a>
 	            </li>
-	            <li class="nav-item">
+	            <li class="nav-item notLoggedIn">
 	              <a class="nav-link" href="#" onclick="on()">Log In</a>
+	            </li>
+	            <li class="nav-item userFeatures">
+	              <a class="nav-link userFeatures" href="./profile.html">Profile</a>
+	            </li>
+	            <li class="nav-item userFeatures">
+	              <a class="nav-link userFeatures" href="./index.html" onclick="logOut()">Log Out</a>
 	            </li>
 	          </ul>
 	        </div>
@@ -65,12 +71,12 @@
 	        <div class="container">
 	          <h1 class="masthead-heading mb-0">Movement Now</h1>
 	          <h2 class="masthead-subheading mb-0">Stretching App</h2>
-	          <a href="#" class="btn btn-primary btn-xl rounded-pill mt-5">Learn More</a>
+	          <a href="#info" class="btn btn-primary btn-xl rounded-pill mt-5">Learn More</a>
 	        </div>
 	      </div>
 	    </header>
 
-	    <section>
+	    <section id="info">
 	      <div class="container">
 	        <div class="row align-items-center">
 	          <div class="col-lg-6 order-lg-2">
@@ -127,7 +133,7 @@
 	    <!-- Footer -->
 	    <footer class="py-5 bg-black">
 	      <div class="container">
-	        <p class="m-0 text-center text-white small">Copyright &copy; Your Website 2018</p>
+	        <p class="m-0 text-center text-white small">Copyright &copy; Movement Now 2018</p>
 	      </div>
 	      <!-- /.container -->
 	    </footer>

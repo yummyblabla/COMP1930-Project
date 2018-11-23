@@ -46,10 +46,6 @@ firebase.auth().onAuthStateChanged((user) => {
 		for (let i = 0; i < userFeatures.length; i++) {
 			userFeatures[i].style.display = "flex";
 		};
-		let notLoggedIn = document.getElementsByClassName("notLoggedIn");
-		for (let i = 0; i< notLoggedIn.length; i++) {
-			notLoggedIn[i].style.display = "none";
-		};
 
 		console.log(user);
 	} else {
@@ -57,6 +53,16 @@ firebase.auth().onAuthStateChanged((user) => {
 		for (let i = 0; i< notLoggedIn.length; i++) {
 			notLoggedIn[i].style.display = "flex";
 		};
-		console.log("not logged in")
+
+		console.log("not logged in");
 	}
 })
+
+const logOut = () => {
+	firebase.auth().signOut().then(() => {
+		console.log("log out");
+
+	}).catch((error) => {
+		console.log("error");
+	})
+}
