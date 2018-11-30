@@ -23,8 +23,8 @@ let uiConfig = {
 				saveUserToCache(authResult.user.uid);
 			} else {
 				saveUserToCache(authResult.user.uid);
-				console.log(authResult);
 			}
+			updateLoginTime(authResult.user.uid);
 			return true;
 		},
 		uiShown: function() {
@@ -49,6 +49,7 @@ let uiConfig = {
 
 ui.start('#firebaseui-auth-container', uiConfig);
 
+// Change HTML Element display values based on user 
 firebase.auth().onAuthStateChanged((user) => {
 	if (user) {
 		let userFeatures = document.getElementsByClassName("userFeatures");
@@ -63,10 +64,16 @@ firebase.auth().onAuthStateChanged((user) => {
 	}
 })
 
+const updateLoginTime = (userID) => {
+	firebase.database().ref(`users/${userID}/`).update({
+		"currentLogin": Date.now()
+	})
+}
+
+// Log out Function
 const logOut = () => {
 	firebase.auth().signOut().then(() => {
 		localStorage.clear();
-
 	}).catch((error) => {
 		console.log("There was an error in logging out.");
 	})
