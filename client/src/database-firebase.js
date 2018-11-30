@@ -10,6 +10,8 @@ const addUserToDatabase = (authResult) => {
 	let newUser = {};
 	newUser["name"] = userDetails.displayName;
 	newUser["email"] = userDetails.email;
+	newUser["lastLogin"] = Date.now();
+	newUser["currentLogin"] = Date.now();
 
 	databaseRef.set(newUser, function(error) {
 		if (error) {
