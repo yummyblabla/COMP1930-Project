@@ -1,5 +1,7 @@
 const database = firebase.database();
 
+let userID;
+
 const addUserToDatabase = (authResult) => {
 	let userDetails = authResult.user;
 	let uid = authResult.user.uid;
@@ -16,4 +18,8 @@ const addUserToDatabase = (authResult) => {
 			console.log("success");
 		}
 	});
+};
+
+const saveUserToCache = (authResult) => {
+	localStorage.setItem("user", authResult);
 };
