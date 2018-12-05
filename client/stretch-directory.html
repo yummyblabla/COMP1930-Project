@@ -7,8 +7,6 @@
 		<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-auth.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-database.js"></script>
 
-
-
 		<script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
 		<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css"/>
 		<meta charset="UTF-8">
@@ -77,36 +75,55 @@
 				<div class="col-lg-12 order-lg-1">
 		            <div class="p-5">
 						<h2 class="display-4">Everything Movement.</h2>
+						
 						<p>Browse our catalog of stretches, no matter what level of fitness or what your needs are - there's something for you.<p>
+
+						<br>
+
 						<h3>Categories</h3>
-						<div class="d-flex flex-row">
-							<div>
-								<img src="./images/healthyback.PNG" id="healthyback" style="margin-bottom: 0.5em">
-								<p class="text-center">Healthy Back</p>
-							</div>
-							<div>
-								<img src="./images/foamroller.PNG" id="foamroller" style="margin-bottom: 0.5em">
-								<p class="text-center">Foam Roller</p>
-							</div>
-							<div>
-								<img src="./images/yoga.PNG" id="yoga" style="margin-bottom: 0.5em">
-								<p class="text-center">Yoga</p>
-							</div>
+						<div class="d-flex flex-row" style="margin-bottom: 3em">
+							
+							<a href="./stretch-selection.html?stretch=yoga">
+								<div>
+									<img src="./images/yoga.PNG" id="yoga" style="margin: 0.5em">
+									<p class="text-center">Yoga</p>
+								</div>
+							</a>
+							<a href="./stretch-selection.html?stretch=pilates">
+					  			<div>
+									<img src="./images/pilates.PNG" id="pilates" style="margin: 0.5em">
+									<p class="text-center">Pilates</p>
+								</div>
+					  		</a>
+							<a href="./stretch-selection.html?stretch=taichi">
+								<div>
+									<img src="./images/taichi.PNG" id="taichi" style="margin: 0.5em">
+									<p class="text-center">Tai Chi</p>
+								</div>
+							</a>
+							
 						</div>
 									
-					  	<div class="d-flex flex-row">
-							<div>
-								<img src="./images/pilates.PNG" id="pilates" style="padding-bottom: 0.5em">
-								<p class="text-center">Pilates</p>
-							</div>
-							<div>
-								<img src="./images/taichi.PNG" id="taichi" style="padding-bottom: 0.5em">
-								<p class="text-center">Tai Chi</p>
-							</div>
-							<div>
-								<img src="./images/core.PNG" id="core" style="padding-bottom: 0.5em">
-								<p class="text-center">Core</p>
-							</div>
+					  	<div class="d-flex flex-row" style="margin-bottom: 3em">
+					  		
+							<a href="./stretch-selection.html?stretch=core">
+								<div>
+									<img src="./images/core.PNG" id="core" style="margin: 0.5em">
+									<p class="text-center">Core</p>
+								</div>
+							</a>
+							<a href="./stretch-selection.html?stretch=back">
+								<div>
+									<img src="./images/healthyback.PNG" id="healthyback" style="margin: 0.5em">
+									<p class="text-center">Healthy Back</p>
+								</div>
+							</a>
+							<a href="./stretch-selection.html?stretch=foamroller">
+								<div>
+									<img src="./images/foamroller.PNG" id="foamroller" style="margin: 0.5em">
+									<p class="text-center">Foam Roller</p>
+								</div>
+							</a>
 		            	</div>
 
 		          	</div>
