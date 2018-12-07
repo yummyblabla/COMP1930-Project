@@ -20,6 +20,7 @@ const getLoginTime = () => {
 	})
 }
 
+// Update last login time on database
 const updateLastLogin = (time) => {
 	userDirectory.update({
 		"lastLogin": time
@@ -33,8 +34,8 @@ const addUserProfileToLocalStorage = (information) => {
 	}
 }
 
-getLoginTime();
 
+// Update values on profile page
 const updateProfilePage = () => {
 	document.getElementById("name").innerHTML = localStorage.getItem("name");
 	document.getElementById("birthday").innerHTML = localStorage.getItem("birthday");
@@ -42,7 +43,7 @@ const updateProfilePage = () => {
 }
 
 
-
+// Get stretches from database
 const getStretchesFromDatabase = () => {
 	let userStretches = firebase.database().ref(`users/${userID}/stretches`);
 
@@ -51,6 +52,7 @@ const getStretchesFromDatabase = () => {
 	userStretches.once('value', (snapshot) => {
 		let data = snapshot.val();
 
+		// Place stretches onto stretch div
 		for (let key in data) {
 			let newDiv = document.createElement("div");
 
@@ -73,7 +75,15 @@ const getStretchesFromDatabase = () => {
 			let lineBreak = document.createElement("br");
 			stretches.appendChild(lineBreak);
 		}
+
+		// If there are no stretches to show
+		if (stretches.childElementCount == 1) {
+			let warningText = document.createElement("p");
+			warningText.innerHTML = "You have not selected any stretches!";
+			stretches.appendChild(warningText);
+		};
 	})
 }
 
+getLoginTime();
 getStretchesFromDatabase();

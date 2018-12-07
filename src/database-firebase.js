@@ -1,7 +1,7 @@
+// Initialize firebase database variable to use
 const database = firebase.database();
 
-let userID;
-
+// Add user to the database if it's a new user
 const addUserToDatabase = (authResult) => {
 	let userDetails = authResult.user;
 	let uid = authResult.user.uid;
@@ -22,6 +22,7 @@ const addUserToDatabase = (authResult) => {
 	});
 };
 
+// Save user's information to localstorage
 const saveUserToCache = (authResult) => {
 	localStorage.setItem("user", authResult);
 };

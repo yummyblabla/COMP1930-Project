@@ -11,10 +11,11 @@ const getURLParams = (url) => {
 	return obj;
 }
 
-// Current stretch to display
+// Current stretch category to display
 let currentStretchDir = getURLParams(window.location.href);
 let currentStretches = {};
 
+// Toggle UI
 const toggleStretch = (stretch) => {
 	currentStretches[stretch] = !currentStretches[stretch];
 	if (currentStretches[stretch]) {
@@ -24,6 +25,7 @@ const toggleStretch = (stretch) => {
 	}
 }
 
+// Check if there is a session logged in
 const checkIfLoggedIn = () => {
 	let loggedIn = localStorage.getItem("name");
 
@@ -34,6 +36,7 @@ const checkIfLoggedIn = () => {
 	return true;
 }
 
+// Update database of the stretches checked, if not, make a new url for non-user for next page
 const updateDatabase = (location) => {
 	if (!checkIfLoggedIn()) {
 		let stretch1 = "";
@@ -74,11 +77,10 @@ const updateDatabase = (location) => {
 		} else if (location == "gogo") {
 			window.location.href = "./start-moving.html";
 		}
-		
 	}
-	
 }
 
+// Attach and append images to the page based on the category selected
 const attachImages = () => {
 	let imageLocation = document.getElementById("imageLocation");
 
@@ -212,8 +214,8 @@ const attachImages = () => {
 	imageLocation.appendChild(imageBody);
 }
 
-attachImages();
 
+// Get data from the database based on what stretches have already been selected
 const getDataFromDatabase = () => {
 	let userID = localStorage.getItem("user");
 	firebase.database().ref(`users/${userID}/stretches/${currentStretchDir.stretch}`).once('value', (snapshot) => {
@@ -233,7 +235,6 @@ const getDataFromDatabase = () => {
 	});
 }
 
+attachImages();
 getDataFromDatabase();
-
-
 checkIfLoggedIn();

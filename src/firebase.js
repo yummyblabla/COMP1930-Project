@@ -64,6 +64,7 @@ firebase.auth().onAuthStateChanged((user) => {
 	}
 })
 
+// Update login time at database
 const updateLoginTime = (userID) => {
 	firebase.database().ref(`users/${userID}/`).update({
 		"currentLogin": Date.now()

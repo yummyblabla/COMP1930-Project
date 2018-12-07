@@ -1,5 +1,7 @@
+// Stretches object that is used for holding stretches
 let stretches = {};
 
+// Append and display videos onto page based on stretch category
 const displayVideos = (videoArray) => {
 	let yogaArray = [];
 	let pilatesArray = [];
@@ -244,9 +246,20 @@ const displayVideos = (videoArray) => {
 		newDiv.appendChild(videoDiv);
 		videoLocation.appendChild(newDiv);
 	};
+
+	// If there are no stretches to show
+	if (videoLocation.childElementCount == 1) {
+		let lineBreak = document.createElement("br");
+		let warningText = document.createElement("p");
+		warningText.innerHTML = "There are no stretches to show. Please select some stretches from the <a href='.stretch-directory.html'>Stretch Directory</a>."
+
+		videoLocation.appendChild(warningText);
+		videoLocation.appendChild(lineBreak);
+		videoLocation.appendChild(lineBreak);
+	}
 }
 
-
+// Parse through data of stretches to display the videos
 const displayStretches = () => {
 	let stretchesSelected = [];
 
@@ -263,6 +276,7 @@ const displayStretches = () => {
 	displayVideos(stretchesSelected);
 };
 
+// Get info from url if the session is not logged in
 const getInfoFromURL = () => {
 	let url = window.location.href;
 	let queryString = url ? url.split('?')[1] : window.location.search.slice(1);
@@ -282,6 +296,7 @@ const getInfoFromURL = () => {
 	displayVideos(stretchesSelected);
 }
 
+// Get data from database if there is user, if not, call getInfoFromURL function
 const getDataFromDatabase = () => {
 	if (localStorage.getItem("user")) {
 		let userID = localStorage.getItem("user");

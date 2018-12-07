@@ -1,5 +1,4 @@
 // Overlay functions
-
 const on = () => {
     document.getElementById("overlay").style.display = "block";
 }

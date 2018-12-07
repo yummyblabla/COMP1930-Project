@@ -21,8 +21,8 @@ const updateProfile = () => {
 	};
 }
 
-updateProfile();
 
+// Update local storage database
 const updateLocalStorage = () => {
 	localStorage.setItem("name", document.getElementById("newName").value);
 	localStorage.setItem("birthday", document.getElementById("newBirthday").value);
@@ -30,7 +30,7 @@ const updateLocalStorage = () => {
 }
 
 
-
+// Add profile changes to firebase database
 const makeProfileChanges = () => {
 	let updates = {};
 	updates["birthday"] = document.getElementById("newBirthday").value;
@@ -41,3 +41,5 @@ const makeProfileChanges = () => {
 	updateLocalStorage();
 	window.location.href = "./profile.html"
 }
+
+updateProfile();
