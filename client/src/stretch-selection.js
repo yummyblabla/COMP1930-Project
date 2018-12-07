@@ -24,12 +24,59 @@ const toggleStretch = (stretch) => {
 	}
 }
 
-const updateDatabase = () => {
-	let userID = localStorage.getItem("user");
-	let stretch = currentStretchDir.stretch;
-	let update = {};
-	update[stretch] = currentStretches;
-	firebase.database().ref(`users/${userID}/stretches`).update(update);
+const checkIfLoggedIn = () => {
+	let loggedIn = localStorage.getItem("name");
+
+	if (loggedIn == null) {
+		document.getElementById("userFeature").style.display = "none";
+		return false;
+	}
+	return true;
+}
+
+const updateDatabase = (location) => {
+	if (!checkIfLoggedIn()) {
+		let stretch1 = "";
+		let stretch2 = "";
+		let stretch3 = "";
+		for (let key in currentStretches) {
+			if (currentStretches[key]) {
+				let newString = key;
+				newString = `${ currentStretchDir.stretch }=${ newString.replace(/ /g, "_") }`;
+				if (stretch1 == "") {
+					stretch1 = newString;
+				} else if (stretch2 == "") {
+					stretch2 = newString;
+				} else if (stretch3 == "") {
+					stretch3 = newString;
+				}
+			}
+		}
+		let stringUrl = "";
+		if (stretch1 != "") {
+			stringUrl += stretch1;
+		} 
+		if (stretch2 != "") {
+			stringUrl += `&${ stretch2 }`
+		} 
+		if (stretch3 != "") {
+			stringUrl += `&${ stretch3 }`
+		}
+		window.location.href = `./start-moving.html?${ stringUrl }`;
+	} else {
+		let userID = localStorage.getItem("user");
+		let stretch = currentStretchDir.stretch;
+		let update = {};
+		update[stretch] = currentStretches;
+		firebase.database().ref(`users/${userID}/stretches`).update(update);
+		if (location == "userFeature") {
+			window.location.href = "./stretch-directory.html";
+		} else if (location == "gogo") {
+			window.location.href = "./start-moving.html";
+		}
+		
+	}
+	
 }
 
 const attachImages = () => {
@@ -46,7 +93,7 @@ const attachImages = () => {
 			let src3 = "https://i.imgur.com/oehY7DZ.jpg";
 			let text1 = "Exercise ball core stretch";
 			let text2 = "Spine alignment and lower back stretch";
-			let text3 = "single leg glut raise - Hip crossover stretch";
+			let text3 = "Single leg glut raise - Hip crossover stretch";
 			imageSrc.push(src1);
 			imageSrc.push(src2);
 			imageSrc.push(src3);
@@ -187,3 +234,6 @@ const getDataFromDatabase = () => {
 }
 
 getDataFromDatabase();
+
+
+checkIfLoggedIn();

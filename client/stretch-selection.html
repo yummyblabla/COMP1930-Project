@@ -20,7 +20,7 @@
 	    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
 
 	    <!-- Custom styles for this template -->
-	    <link href="css/one-page-wonder.css" rel="stylesheet">
+	    <link href="css/movementnow.css" rel="stylesheet">
 
 	    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
@@ -33,15 +33,12 @@
 	</head>
 
 	<body>
-		<div id="overlay" >
-
-			<div id="text">
-				<button onclick="off()" id="closebutton">X</button>
+		<div id="overlay">
+			<div class="d-flex flex-column" id="text">
+				<button onclick="off()" id="closebutton">Close</button>
 				<div id="firebaseui-auth-container"></div>
 				<div id="loader">Loading...</div>
-				
 			</div>
-			
 		</div>
 		
 		<!-- Navigation -->
@@ -89,13 +86,9 @@
 	              </div>
 	              <br>
 	              <div class="text-center" id="buttons">
-	              	<a href="./stretch-directory.html">
-	              		<button class="btn btn-block btn-lg btn-primary" id=submit" onclick="updateDatabase()">Submit and Select More Stretches</button>
-	              	</a>
+	              	<button class="btn btn-block btn-lg btn-primary" id="userFeature" onclick="updateDatabase(this.id)">Submit and Select More Stretches</button>
 	              	<br>
-	              	<a href="./start-moving.html">
-	              		<button class="btn btn-block btn-lg btn-primary font-weight-bold" id=submit" onclick="updateDatabase()">Submit and Start Stretching!</button>
-	              	</a>
+	              	<button class="btn btn-block btn-lg btn-primary font-weight-bold" id=submit" onclick="updateDatabase('gogo')">Submit and Start Stretching!</button>
 	              </div>
 
 	            </div>

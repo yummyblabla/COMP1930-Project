@@ -53,8 +53,6 @@ header.masthead {
   overflow: hidden;
   padding-top: calc(7rem + 72px);
   padding-bottom: 7rem;
-/*  background: -webkit-gradient(linear, left bottom, left top, from(#ff6a00), to(#ee0979));
-  background: linear-gradient(0deg, #ff6a00 0%, #ee0979 100%);*/
   background: black;
   background-repeat: no-repeat;
   background-position: center center;
@@ -145,33 +143,18 @@ body {
 }
 
 .btn-primary {
-  background-color: #ee0979;
-  border-color: #ee0979;
+  background-color: #3C83FF;
+  border-color: #3C83FF;
 }
 
 .btn-primary:active, .btn-primary:focus, .btn-primary:hover {
-  background-color: #bd0760 !important;
-  border-color: #bd0760 !important;
+  background-color: #285DB8 !important;
+  border-color: #285DB8 !important;
 }
 
 .btn-primary:focus {
-  -webkit-box-shadow: 0 0 0 0.2rem rgba(238, 9, 121, 0.5);
-  box-shadow: 0 0 0 0.2rem rgba(238, 9, 121, 0.5);
-}
-
-.btn-secondary {
-  background-color: #ff6a00;
-  border-color: #ff6a00;
-}
-
-.btn-secondary:active, .btn-secondary:focus, .btn-secondary:hover {
-  background-color: #cc5500 !important;
-  border-color: #cc5500 !important;
-}
-
-.btn-secondary:focus {
-  -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 106, 0, 0.5);
-  box-shadow: 0 0 0 0.2rem rgba(255, 106, 0, 0.5);
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(40, 93, 184, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(40, 93, 184, 0.5);
 }
 
 #overlay {
@@ -199,7 +182,12 @@ body {
 
 
 #firebaseui-auth-container {
-  z-index: 2;
+  z-index: 1;
+}
+
+#closebutton {
+  width: 100%;
+  font-size: 20px;
 }
 
 .notLoggedIn {
